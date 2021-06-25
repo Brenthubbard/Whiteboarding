@@ -144,3 +144,27 @@ Input: [9, 2, 7, 12]
 
 Output: [2, 7, 9, 12]
 
+________________________________________________________
+Answer5:
+
+let num = [9,6,7,8,1,2,3,4,5]
+
+let count = [];
+let i, z = 0;
+let max = Math.max(...num);
+    //start counter
+    for (i = 0; i <= max; i++) {
+        count[i] = 0;
+    }
+for (i=0; i < num.length; i++) {
+        count[num[i]]++;
+    }
+for (i = 0; i <= max; i++) {
+        while (count[i]-- > 0) {
+            num[z++] = i;
+        }
+}
+//output sorted array
+for (i=0; i < num.length; i++) {
+console.log(num[i]);
+}
