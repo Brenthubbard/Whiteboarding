@@ -7,19 +7,17 @@ You may not use the replace() method or regular expressions to solve this proble
 I need to split the string with split()
 and Join them back together with join()
 so:
-
+________________________________________________________
 Answer:
 let str = 'Jasmine Ann Jones';
 let replaced = str.split(' ').join('%20');
-
+________________________________________________________
 
 Example
 Input: "Jasmine Ann Jones"
 
 Output: "Jasmine%20Ann%20Jones"
-
-
-
+________________________________________________________
 
 
 
@@ -61,7 +59,7 @@ Answer 3: using recursion
 
 
 
-
+________________________________________________________
 Question #3: Compressing Strings
 Write an algorithm that takes a string with repeated characters and compresses them, using a number to show how many times the repeated character has been compressed. For instance, aaa would be written as 3a. Solve the problem with and without recursion.
 
@@ -74,7 +72,7 @@ Answer: Run length encoding
 a) Pick the first character from the string. 
 b) Append the picked character to the destination string. 
 c) Count the number of occurrences of the picked character and append the count to the destination string.
-
+without recursion:
 
 function compString(str)
   {
@@ -97,15 +95,15 @@ let str = "aaabbbbbcccccdddddeeeeeee";
 compString(str);
 a3b5c5d5e7
 
+Answer3 with recursion:
+
+
 ________________________________________________________
-
-
-
-
 
 
 Question #4: Checking for Uniqueness
 Write an algorithm that determines whether all the elements in a string are unique. You may not convert the string into an array or use array methods to solve this problem. The algorithm should return a boolean.
+________________________________________________________
 
 Example
 Input: "hello"
@@ -115,6 +113,20 @@ Output: false
 Input: "copyright"
 
 Output: true
+________________________________________________________
+Answer4: Checking for Uniqueness
+
+function uniqChar(str)
+  {
+    for(let i = 0; i < str.length; i++) //run 2 loops
+      for(j = i + 1; j < str.length; j++)
+        if (str[i] == str[j]) //if they become = at any point return false
+            return false;
+
+
+    return true;
+  }
+________________________________________________________
 
 Question #5: Array Sorting
 Write an algorithm that sorts an array without using the sort() method. There are many different sorting algorithms - take the time to read about the following:
