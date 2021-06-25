@@ -10,7 +10,8 @@ so:
 ________________________________________________________
 Answer:
 let str = 'Jasmine Ann Jones';
-let replaced = str.split(' ').join('%20');
+let replaced = str.split(' ').join('%20');     
+//I split the string with .split at the " " spaces and did .join to reassemble the string with '%20' instead of " "
 ________________________________________________________
 
 Example
@@ -35,8 +36,8 @@ Input: [7, 9, "hi", 12, "hi", 7, 53]
 Output: [7, 9, "hi", 12, 53]
 __________________________________________________
 Answer 1: not using filter
-let array = [7, 9, "hi", 12, "hi", 7, 53];
-let nonDup = [...new Set(array)];
+let array = [7, 9, "hi", 12, "hi", 7, 53];  // setting variable
+let nonDup = [...new Set(array)];    //setting a new array to delete duplicates
 (5) [7, 9, "hi", 12, 53]
 
 
@@ -54,7 +55,7 @@ removeDup(arr);
 
 Using filter() I created a new array that passed the conditional I provided.  Any element that fails the conditional will be filtered.
 ________________________________________________________
-Answer 3: using recursion
+
 
 
 
@@ -69,25 +70,25 @@ Input: "aaabccdddda"
 Output: "3ab2c4da"
 ________________________________________________________
 Answer: Run length encoding
-a) Pick the first character from the string. 
-b) Append the picked character to the destination string. 
-c) Count the number of occurrences of the picked character and append the count to the destination string.
+Pick the first character from the string. 
+Append the picked character to the destination string. 
+Count the number of occurrences of the picked character and append the count to the destination string.
 without recursion:
 
 function compString(str)
   {
     let n = str.length;
-    for ( let i = 0; i < n; i++)
+    for ( let i = 0; i < n; i++)  //iterate through the string
     {
       //this will count the number of times the char is repeated
       let count = 1;
-    while (i < n - 1 && str[i] == str[i+1])
+    while (i < n - 1 && str[i] == str[i+1])  adding a count to the string while deleting the extra elements
       {
         count++;
         i++;
       }
 
-        console.log (str[i]);
+        console.log (str[i]);   
         console.log (count);
     }
   }
@@ -96,7 +97,29 @@ compString(str);
 a3b5c5d5e7
 
 Answer3 with recursion:
+function compress(str)
 
+
+function compress(str){
+    let compressedString = ""
+    let strArray = str.split("") //split to string to iterate through
+    for (let i = 0; i < strArray.length; i++){ //create new string to hold compressed version of the original  ,create loop
+
+        let count = 1
+        let currentLetter = strArray[i] //keep track of each iteration
+
+        while (i < strArray.length - 1 && strArray[i] === strArray[i+1]){
+     count++
+          i++
+        }
+        if (count === 1){
+          compressedString += currentLetter
+        } else {
+          compressedString += currentLetter + count
+        }
+      }
+      return compressedString
+    }
 
 ________________________________________________________
 
@@ -116,15 +139,15 @@ Output: true
 ________________________________________________________
 Answer4: Checking for Uniqueness
 
-function uniqChar(str)
+function uniqChar(str)  //name the function and pass in the string
   {
-    for(let i = 0; i < str.length; i++) //run 2 loops
+    for(let i = 0; i < str.length; i++) //run 2 loops i and j 
       for(j = i + 1; j < str.length; j++)
         if (str[i] == str[j]) //if they become = at any point return false
             return false;
 
 
-    return true;
+    return true;  //if they are never == then return true
   }
 ________________________________________________________
 
@@ -145,23 +168,23 @@ Input: [9, 2, 7, 12]
 Output: [2, 7, 9, 12]
 
 ________________________________________________________
-Answer5:
+Answer5: using counting sort
 
 let num = [9,6,7,8,1,2,3,4,5]
 
-let count = [];
-let i, z = 0;
-let max = Math.max(...num);
+let count = []; //create a empty array for count
+let i, z = 0; 
+let max = Math.max(...num);  //make sure there is #'s inside num
     //start counter
     for (i = 0; i <= max; i++) {
         count[i] = 0;
     }
 for (i=0; i < num.length; i++) {
-        count[num[i]]++;
+        count[num[i]]++;    //move through the count and go to the end
     }
 for (i = 0; i <= max; i++) {
-        while (count[i]-- > 0) {
-            num[z++] = i;
+        while (count[i]-- > 0) {   //iterate through the count until you reach 0
+            num[z++] = i;       // in each iteration add the sorted number to the index
         }
 }
 //output sorted array
