@@ -26,16 +26,37 @@ Output: "Jasmine%20Ann%20Jones"
 Question #2: Array Deduping
 Write an algorithm that removes duplicates from an array. Do not use a function like filter() to solve this. Once you have solved the problem, demonstrate how it can be solved with filter(). Solve the problem with and without recursion.
 
-1. remove duplicates from array:
+1. remove duplicates from array:Input: "aaabccdddda"
 2. do not use filter
-3. use filter
+3. use filter 
+4. use recursion
 
+using Set() I will convert [7, 9, "hi", 12, "hi", 7, 53] into the desired output.
 Example
-Input: [7, 9, "hi", 12, "hi" 7, 53]
-
+Input: [7, 9, "hi", 12, "hi", 7, 53]
 Output: [7, 9, "hi", 12, 53]
+__________________________________________________
+Answer 1: not using filter
+let array = [7, 9, "hi", 12, "hi", 7, 53];
+let nonDup = [...new Set(array)];
+(5) [7, 9, "hi", 12, 53]
 
 
+A "Set()" is a collection of unique values.
+Converting the array to a Set() removes all duplicate values.
+Then I convert the Set back into an array.
+____________________________________________________
+Answer 2: using filter
+let arr = [7, 9, "hi", 12, "hi", 7, 53];
+function removeDup(arr) {
+return arr.filter((value, index) => arr.indexOf(value) === index);
+}
+removeDup(arr);
+(5) [7, 9, "hi", 12, 53]
+
+Using filter() I created a new array that passed the conditional I provided.  Any element that fails the conditional will be filtered.
+________________________________________________________
+Answer 3: using recursion
 
 
 
@@ -48,6 +69,40 @@ Example
 Input: "aaabccdddda"
 
 Output: "3ab2c4da"
+________________________________________________________
+Answer: Run length encoding
+a) Pick the first character from the string. 
+b) Append the picked character to the destination string. 
+c) Count the number of occurrences of the picked character and append the count to the destination string.
+
+
+function compString(str)
+  {
+    let n = str.length;
+    for ( let i = 0; i < n; i++)
+    {
+      //this will count the number of times the char is repeated
+      let count = 1;
+    while (i < n - 1 && str[i] == str[i+1])
+      {
+        count++;
+        i++;
+      }
+
+        console.log (str[i]);
+        console.log (count);
+    }
+  }
+let str = "aaabbbbbcccccdddddeeeeeee";
+compString(str);
+a3b5c5d5e7
+
+________________________________________________________
+
+
+
+
+
 
 Question #4: Checking for Uniqueness
 Write an algorithm that determines whether all the elements in a string are unique. You may not convert the string into an array or use array methods to solve this problem. The algorithm should return a boolean.
