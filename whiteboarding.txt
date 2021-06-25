@@ -3,18 +3,43 @@ URLs cannot have spaces. Instead, all spaces in a string are replaced with %20. 
 
 You may not use the replace() method or regular expressions to solve this problem. Solve the problem with and without recursion.
 
+
+I need to split the string with split()
+and Join them back together with join()
+so:
+
+Answer:
+let str = 'Jasmine Ann Jones';
+let replaced = str.split(' ').join('%20');
+
+
 Example
 Input: "Jasmine Ann Jones"
 
 Output: "Jasmine%20Ann%20Jones"
 
+
+
+
+
+
 Question #2: Array Deduping
 Write an algorithm that removes duplicates from an array. Do not use a function like filter() to solve this. Once you have solved the problem, demonstrate how it can be solved with filter(). Solve the problem with and without recursion.
+
+1. remove duplicates from array:
+2. do not use filter
+3. use filter
 
 Example
 Input: [7, 9, "hi", 12, "hi" 7, 53]
 
 Output: [7, 9, "hi", 12, 53]
+
+
+
+
+
+
 
 Question #3: Compressing Strings
 Write an algorithm that takes a string with repeated characters and compresses them, using a number to show how many times the repeated character has been compressed. For instance, aaa would be written as 3a. Solve the problem with and without recursion.
