@@ -10,7 +10,9 @@ so:
 ________________________________________________________
 Answer:
 let str = 'Jasmine Ann Jones';
-let replaced = str.split(' ').join('%20');     
+function replaced (string){
+return  string.split(' ').join('%20'); 
+}    
 //I split the string with .split at the " " spaces and did .join to reassemble the string with '%20' instead of " "
 ________________________________________________________
 
